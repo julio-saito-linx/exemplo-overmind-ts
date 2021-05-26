@@ -1,8 +1,8 @@
-import { Overmind, IConfig, IAction } from "overmind";
-import { createHook } from "overmind-react";
-import { state } from "./state";
-import * as actions from "./actions";
-import * as effects from "./effects";
+import { Overmind, IConfig, IAction } from 'overmind';
+import { createHook } from 'overmind-react';
+import { state } from './state';
+import * as actions from './actions';
+import * as effects from './effects';
 
 const config = {
   state,
@@ -14,6 +14,6 @@ export type Config = IConfig<typeof config>;
 
 export type Action<Input = void> = IAction<Config, Input>;
 
-const overmind = new Overmind(config);
+export const overmind = new Overmind(config);
 
-export const useOvermind = createHook(overmind);
+export const useOvermind = createHook<typeof config>();

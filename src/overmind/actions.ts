@@ -1,10 +1,10 @@
-import * as React from "react";
-import { Action } from "./";
+import * as React from 'react';
+import { Action } from './';
 
 export const getPosts: Action = async ({ state, effects }) => {
   state.isLoadingPosts = true;
   state.posts = await effects.request(
-    "https://jsonplaceholder.typicode.com/posts"
+    'https://jsonplaceholder.typicode.com/posts'
   );
   state.isLoadingPosts = false;
 };
