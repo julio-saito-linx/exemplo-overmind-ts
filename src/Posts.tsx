@@ -1,13 +1,12 @@
-import * as React from "react";
-import { useEffect } from "react";
-import { useOvermind } from "./overmind";
+import * as React from 'react';
+import { useOvermind } from './overmind';
 
 const Posts: React.FunctionComponent = () => {
   const { state, actions } = useOvermind();
 
-  useEffect(() => {
+  React.useEffect(() => {
     actions.getPosts();
-  }, []);
+  },              []);
 
   return (
     <div>
@@ -15,7 +14,7 @@ const Posts: React.FunctionComponent = () => {
         <h4>Loading...</h4>
       ) : (
         <div>
-          Show count:{" "}
+          Show count:{' '}
           <select value={state.showCount} onChange={actions.changeShowCount}>
             <option value="10">10</option>
             <option value="50">50</option>

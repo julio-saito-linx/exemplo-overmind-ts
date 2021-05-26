@@ -1,4 +1,4 @@
-import { Derive } from "overmind";
+import { derived } from 'overmind';
 
 export type Post = {
   id: string;
@@ -10,12 +10,12 @@ export type State = {
   isLoadingPosts: boolean;
   showCount: string;
   posts: Post[];
-  filteredPosts: Derive<State, Post[]>;
+  filteredPosts: Post[];
 };
 
 export const state: State = {
   isLoadingPosts: true,
-  showCount: "10",
+  showCount: '10',
   posts: [],
-  filteredPosts: state => state.posts.slice(0, Number(state.showCount))
+  filteredPosts: derived((currentState: State) => currentState.posts.slice(0, Number(currentState.showCount))),
 };
